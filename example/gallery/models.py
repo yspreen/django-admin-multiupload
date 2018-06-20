@@ -13,7 +13,7 @@ class Gallery(models.Model):
 
 class Image(models.Model):
     file = models.FileField('File', upload_to='images/')
-    gallery = models.ForeignKey('Gallery', related_name='images', blank=True, null=True)
+    gallery = models.ForeignKey('Gallery', related_name='images', blank=True, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.filename
